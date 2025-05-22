@@ -50,6 +50,16 @@ export const projectsData: Project[] = [
     technologies: ['Next.js', 'MongoDB', 'Editor.js', 'OpenAI', 'Unsplash API'],
     live: '#',
     delay: 0.4
+  },
+  {
+    id: 'portfolio-website',
+    title: 'Portfolio Website',
+    description: 'Professional portfolio website built with Next.js, React, TypeScript, Tailwind CSS, and Framer Motion.',
+    image: 'https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400&q=80',
+    categories: ['web'],
+    technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
+    github: 'https://github.com',
+    delay: 0.5
   }
 ];
 
