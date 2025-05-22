@@ -89,13 +89,38 @@ const ProjectsSection = () => {
           viewport={{ once: true }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {filteredProjects.map((project, index) => (
-            <ProjectCard 
-              key={project.id}
-              project={project}
-              index={index}
-            />
-          ))}
+          {filteredProjects.length > 0 ? (
+            filteredProjects.map((project, index) => (
+              <ProjectCard 
+                key={project.id}
+                project={project}
+                index={index}
+              />
+            ))
+          ) : (
+            <motion.div 
+              variants={fadeIn('up', 0.3)}
+              className="col-span-full text-center py-12"
+            >
+              <div className="glassmorphism rounded-xl p-8 shadow-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mx-auto mb-4 text-gray-400 dark:text-gray-500">
+                  <rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect>
+                  <line x1="3" x2="21" y1="9" y2="9"></line>
+                  <path d="m9 16 3-3 3 3"></path>
+                </svg>
+                <h3 className="text-xl font-bold mb-2">No projects found</h3>
+                <p className="text-dark-500 dark:text-dark-300 mb-4">
+                  There are no projects matching the selected filter.
+                </p>
+                <button 
+                  onClick={() => handleFilterClick('all')}
+                  className="bg-primary hover:bg-primary/90 dark:bg-primary dark:hover:bg-primary/90 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
+                >
+                  View all projects
+                </button>
+              </div>
+            </motion.div>
+          )}
         </motion.div>
         
         <motion.div 
