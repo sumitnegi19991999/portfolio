@@ -40,14 +40,14 @@ const HeroSection = () => {
             
             <motion.div 
               variants={fadeIn('right', 0.4)}
-              className="h-16 overflow-hidden w-full"
+              className="h-16 overflow-hidden"
             >
-              <div className="animate-text-slide w-full">
-                <div className="w-full"><TypingAnimation text="Building with MERN Stack" /></div>
-                <div className="w-full"><TypingAnimation text="Creating AI solutions" /></div>
-                <div className="w-full"><TypingAnimation text="Optimizing performance" /></div>
-                <div className="w-full"><TypingAnimation text="Crafting beautiful UIs" /></div>
-                <div className="w-full"><TypingAnimation text="Solving complex problems" /></div>
+              <div className="animate-text-slide">
+                <TypingAnimation text="Building with MERN Stack" />
+                <TypingAnimation text="Creating AI-powered solutions" />
+                <TypingAnimation text="Optimizing web performance" />
+                <TypingAnimation text="Crafting beautiful UIs" />
+                <TypingAnimation text="Solving complex problems" />
               </div>
             </motion.div>
             
@@ -144,11 +144,11 @@ const HeroSection = () => {
             
             <motion.div 
               variants={fadeIn('up', 0.5)}
-              className="absolute -bottom-8 right-0 sm:-right-8 glassmorphism rounded-lg p-4 shadow-lg max-w-[calc(100%-2rem)]"
+              className="absolute -bottom-8 -right-8 glassmorphism rounded-lg p-4 shadow-lg"
             >
               <div className="flex items-center gap-3">
-                <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse flex-shrink-0"></div>
-                <span className="text-sm font-medium truncate">Available for new opportunities</span>
+                <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
+                <span className="text-sm font-medium">Available for new opportunities</span>
               </div>
             </motion.div>
           </motion.div>
