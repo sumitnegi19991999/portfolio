@@ -125,6 +125,15 @@
 
 .animate-text-slide {
   animation: text-slide 12s infinite;
+  width: 100%;
+}
+
+.animate-text-slide > div {
+  height: 2rem;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 @keyframes text-slide {
@@ -132,16 +141,16 @@
     transform: translateY(0%);
   }
   20%, 36% {
-    transform: translateY(-16.66%);
+    transform: translateY(-100%);
   }
   40%, 56% {
-    transform: translateY(-33.33%);
+    transform: translateY(-200%);
   }
   60%, 76% {
-    transform: translateY(-50%);
+    transform: translateY(-300%);
   }
   80%, 96% {
-    transform: translateY(-66.66%);
+    transform: translateY(-400%);
   }
   100% {
     transform: translateY(0%);
