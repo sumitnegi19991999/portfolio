@@ -2,7 +2,6 @@ import nodemailer from 'nodemailer';
 import { type ContactFormData } from '@shared/schema';
 
 // Configure email transporter
-console.log("EMAIL_USER", process.env.EMAIL_USER, "EMAIL_PASSWORD", process.env.EMAIL_PASSWORD);
 
 const transporter = nodemailer.createTransport({
   host: 'smtp.gmail.com',

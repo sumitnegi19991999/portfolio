@@ -2,10 +2,16 @@ import 'dotenv/config';
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
+import { setupSecurityMiddleware } from './middleware/security';
 
 const app = express();
+
+// Apply security middleware
+setupSecurityMiddleware(app);
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
 
 app.use((req, res, next) => {
   const start = Date.now();
