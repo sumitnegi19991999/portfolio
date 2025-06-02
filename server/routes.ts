@@ -35,7 +35,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   // API route for downloading resume
   app.get('/api/download-resume', (req, res) => {
-    const resumePath = path.resolve(process.cwd(), 'attached_assets/Resume_5.pdf');
+    const resumePath = path.resolve(
+      process.env.NODE_ENV === 'production' 
+        ? path.join(process.cwd(), 'attached_assets', 'Resume_5.pdf')
+        : path.join(process.cwd(), 'attached_assets', 'Resume_5.pdf')
+    );
     
     if (fs.existsSync(resumePath)) {
       res.setHeader('Content-Type', 'application/pdf');
