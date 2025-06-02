@@ -4,6 +4,7 @@ import { storage } from "./storage";
 import fs from "fs";
 import path from "path";
 import { contactSchema } from "@shared/schema";
+import { sendContactFormEmail } from "./services/email";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // API route for handling contact form submissions
@@ -18,9 +19,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
         });
       }
       
-      // In a real application, you would send this data via email or store in a database
-      // Here we'll log it for demo purposes
-      console.log('Contact form submission:', validatedData.data);
+      // Send email with the contact form data
+      await sendContactFormEmail(validatedData.data);
       
       return res.status(200).json({
         message: 'Message sent successfully'
