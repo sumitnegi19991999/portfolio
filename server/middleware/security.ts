@@ -3,6 +3,7 @@ import cors from 'cors';
 import rateLimit from 'express-rate-limit';
 import session from 'express-session';
 import { type Express } from 'express';
+import pgSession from 'connect-pg-simple';
 
 export function setupSecurityMiddleware(app: Express) {
   // Basic security headers with Helmet
@@ -53,17 +54,36 @@ export function setupSecurityMiddleware(app: Express) {
     throw new Error('SESSION_SECRET environment variable is required');
   }
 
-  app.use(
-    session({
-      secret: process.env.SESSION_SECRET,
-      resave: false,
-      saveUninitialized: false,
-      cookie: {
-        secure: process.env.NODE_ENV === 'production',
-        httpOnly: true,
-        maxAge: 24 * 60 * 60 * 1000, // 24 hours
-        sameSite: 'lax',
+  // Use PostgreSQL for session storage in production
+  const sessionConfig: session.SessionOptions = {
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      secure: process.env.NODE_ENV === 'production',
+      httpOnly: true,
+      maxAge: 24 * 60 * 60 * 1000, // 24 hours
+      sameSite: 'lax',
+    }
+  };
+
+  // Only use PostgreSQL session store in production
+  if (process.env.NODE_ENV === 'production') {
+    const PostgresqlStore = pgSession(session);
+    
+    sessionConfig.store = new PostgresqlStore({
+      conObject: {
+        connectionString: process.env.DATABASE_URL,
+        ssl: { rejectUnauthorized: false }
       },
-    })
-  );
-} 
+      tableName: 'session', // Table to store sessions
+      createTableIfMissing: true // Automatically create the session table
+    });
+    
+    console.log('Using PostgreSQL session store for production');
+  } else {
+    console.log('Using memory session store for development');
+  }
+
+  app.use(session(sessionConfig));
+}
