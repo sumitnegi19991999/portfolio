@@ -63,13 +63,15 @@ app.use((req, res, next) => {
     serveStatic(app);
   }
 
-  // Modified port to avoid conflict
-  const port = 5001;
+  // Modified port configuration to work in both development and production
+  const port = process.env.PORT || 5001;
+  const host = process.env.NODE_ENV === 'production' ? '0.0.0.0' : 'localhost';
+  
   server.listen({
     port,
-    host: "localhost",
+    host,
     reusePort: true,
   }, () => {
-    log(`serving on port ${port}`);
+    log(`serving on port ${port} and host ${host}`);
   });
 })();
