@@ -23,6 +23,11 @@ CORS_ORIGIN="https://your-domain.com"
 # Application
 NODE_ENV="production"
 PORT=5000
+
+# Email (for contact form)
+EMAIL_USER="your-gmail-address@gmail.com"
+EMAIL_PASSWORD="your-gmail-app-password"
+RECIPIENT_EMAIL="where-to-receive-contact-messages@example.com"
 ```
 
 ## Database Setup
