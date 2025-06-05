@@ -28,7 +28,7 @@ export const projectsData: Project[] = [
     image: 'https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400&q=80',
     categories: ['ai', 'web'],
     technologies: ['Next.js', 'PyTorch', 'AWS', 'T3 Stack', 'Auth.js'],
-    github: 'https://github.com',
+    github: 'https://github.com/github.com/sumitnegi19991999/video-sentiment-model',
     delay: 0.2
   },
   {
@@ -38,7 +38,7 @@ export const projectsData: Project[] = [
     image: 'https://images.unsplash.com/photo-1526498460520-4c246339dccb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400&q=80',
     categories: ['fullstack', 'web'],
     technologies: ['Next.js', 'TypeScript', 'MongoDB', 'JWT', 'OpenAI'],
-    live: '#',
+    live: 'https://rydovia.com/',
     delay: 0.3
   },
   {
@@ -48,17 +48,17 @@ export const projectsData: Project[] = [
     image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400&q=80',
     categories: ['ai', 'fullstack'],
     technologies: ['Next.js', 'MongoDB', 'Editor.js', 'OpenAI', 'Unsplash API'],
-    live: '#',
+    live: 'https://rydovia.com/blog',
     delay: 0.4
   },
   {
-    id: 'portfolio-website',
-    title: 'Portfolio Website',
-    description: 'Professional portfolio website built with Next.js, React, TypeScript, Tailwind CSS, and Framer Motion.',
+    id: 'evelyn-learning',
+    title: 'Evelyn Learning Systems',
+    description: 'MERN stack application serving 10,000+ monthly active users with 99.9% uptime, featuring real-time collaboration and AI content generation.',
     image: 'https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400&q=80',
     categories: ['web'],
     technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
-    github: 'https://github.com',
+    github: 'https://www.evelynlearning.com/',
     delay: 0.5
   }
 ];
